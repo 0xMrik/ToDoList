@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from "react";
-import { Flex } from '@chakra-ui/react'
+import { Container, Flex } from '@chakra-ui/react'
 
 import { ITask } from "@types";
 
@@ -93,21 +93,23 @@ export default function Home() {
   return (
     <>
       <Header />
-      <AddTask task={task} setTask={setTask} handleCreateTask={handleCreateTask} />
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <>
-          <Flex direction="column" p="2rem">
-            {allTasks.length > 0 ?
-              allTasks.map((individualTask: ITask) => (
-                <Task key={individualTask._id} individualTask={individualTask} handleCompleteTask={handleCompleteTask} handleDeleteTask={handleDeleteTask} />
-              )) : (
-                <NoTask />
-              )}
-          </Flex>
-        </>
-      )}
+      <Container className="container">
+        <AddTask task={task} setTask={setTask} handleCreateTask={handleCreateTask} />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <Flex direction="column" p="2rem">
+              {allTasks.length > 0 ?
+                allTasks.map((individualTask: ITask) => (
+                  <Task key={individualTask._id} individualTask={individualTask} handleCompleteTask={handleCompleteTask} handleDeleteTask={handleDeleteTask} />
+                )) : (
+                  <NoTask />
+                )}
+            </Flex>
+          </>
+        )}
+      </Container>
     </>
   )
 }

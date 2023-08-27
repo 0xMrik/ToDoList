@@ -19,7 +19,6 @@ const Task = ({ individualTask, handleCompleteTask, handleDeleteTask }: TaskProp
           {individualTask.completed ? (
             <Button
               ml="1rem"
-              colorScheme='whatsapp'
               onClick={() => handleCompleteTask(individualTask._id)}
               isDisabled
             >
@@ -36,7 +35,6 @@ const Task = ({ individualTask, handleCompleteTask, handleDeleteTask }: TaskProp
           )}
           <Button
             ml="1rem"
-            colorScheme='red'
             onClick={() => handleDeleteTask(individualTask._id)}
           >
             <DeleteIcon />
